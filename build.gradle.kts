@@ -14,6 +14,7 @@ repositories {
     google()
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    maven("https://oss.sonatype.org/content/repositories")
 }
 
 dependencies {
@@ -23,6 +24,8 @@ dependencies {
     implementation("com.ibm.watson:text-to-speech:9.3.1")
     implementation("javazoom:jlayer:1.0.1")
     implementation("commons-io:commons-io:2.11.0")
+    //implementation("com.1stleg:jnativehook:2.1.0")
+    implementation("com.github.kwhat:jnativehook:2.2.1")
 }
 
 tasks.test {
