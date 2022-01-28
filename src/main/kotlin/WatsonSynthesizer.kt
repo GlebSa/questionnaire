@@ -18,7 +18,7 @@ class WatsonSynthesizer() {
 
     fun synthesize(text: String): ByteArray {
         val synthesizeOptions = SynthesizeOptions.Builder()
-            .voice(SynthesizeOptions.Voice.EN_US_HENRYV3VOICE)
+            .voice(SynthesizeOptions.Voice.EN_US_ALLISONV3VOICE)
             .text(text)
             .accept(HttpMediaType.AUDIO_MP3)
             .build()

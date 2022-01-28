@@ -24,6 +24,7 @@ class GlobalClipboard {
             private var isControlPressed = false
 
             override fun nativeKeyPressed(nativeEvent: NativeKeyEvent) {
+                //println(nativeEvent.keyCode)
                 if (nativeEvent.keyCode == 29) {
                     isControlPressed = true
                 }
@@ -31,8 +32,8 @@ class GlobalClipboard {
 
             override fun nativeKeyReleased(nativeEvent: NativeKeyEvent) {
                 when {
-                    nativeEvent.keyCode == 46 && isControlPressed -> {
-                        println("control + c pressed")
+                    nativeEvent.keyCode == 31 && isControlPressed -> {
+                        println("control + s pressed")
                         Thread.sleep(500)
                         val message = systemClipboard
                             .getContents(this)

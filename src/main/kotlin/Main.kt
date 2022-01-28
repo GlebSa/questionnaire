@@ -39,8 +39,9 @@ fun App() {
     }
 }
 
-fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
-        App()
-    }
+fun main() {
+    GlobalClipboard().createListener()
+//    Window(onCloseRequest = ::exitApplication) {
+//        App()
+//    }
 }
