@@ -52,17 +52,24 @@ class GlobalClipboard {
     }
 
     private fun handleMessage(message: String) {
-        println("message ${message}")
+        println("message \"${message}\"")
 
-        var bytes = cache.retrieve(message)
+        repeat(5) {
+            try {
+                var bytes = cache.retrieve(message)
 
-        if (bytes == null) {
-            bytes = synthesizer.synthesize(message)
-            cache.store(bytes, message)
-            writeText(message)
+                if (bytes == null) {
+                    bytes = synthesizer.synthesize(message)
+                    cache.store(bytes, message)
+                    writeText(message)
+                }
+
+                playMp3(bytes)
+                return
+            } catch (e: Exception) {
+                println("Error ${e.message}")
+            }
         }
-
-        playMp3(bytes)
     }
 
     private fun playMp3(bytes: ByteArray) {
